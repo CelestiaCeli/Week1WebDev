@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pizza Order</title>
 </head>
 <body>
     <h2>The super SECRET pizza website</h2>
@@ -14,17 +14,38 @@
     <hr>
     <br><h2>Order a pizza</h2> <br>
 
-    <form>
-        <p>Name:</p> <input type="text">
-        <p>Phone:</p> <input type="text" title="Phone">
-        <p>Size</p> 
+    <form action="" target="_blank" method="post">
+        <label for="Name">Name: </label>
+        <input type="text" name="Name" id="Name" required> <br> <br>
+        
+        <label for="Phone">Phone: </label>
+        <input type="tel" title="Phone" id="Phone" name="Phone" required pattern="[0-9]?-?[0-9]{3}-[0-9]{3}-[0-9]{4}"> <br> <br>
+        
+        <p>Size</p>
         <input type="radio" name="Size" value="Small"> Small
         <input type="radio" name="Size" value="Medium"> Medium
         <input type="radio" name="Size" value="Large"> Large
 
+        <p>How close do you want it to represent a pizza?</p>
+        <input type="range" name="PizzaMeter">
+        <br> <br>
+        <label for=Toppings>Choose your toppings</label>
+
+        <br>
+
+        <select name="Toppings" id="Toppings">
+            <option value="Cheese">Cheese</option>
+            <option value="Knives">Knives</option>
+            <option value="Uranium">Uranium please!</option>
+            <option value="Topping">A single toping.</option>
+        </select>
+
         <p>Extra Notes</p>
-        
-        <input type="button" value="Submit">
+        <textarea name="message" rows="10" cols="30"></textarea>
+
+        <br> <br>
+        <input type="submit" value="Submit">
+
     </form>
 </body>
 </html>
