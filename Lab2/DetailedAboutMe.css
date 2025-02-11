@@ -1,4 +1,92 @@
+
 html {
     text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #439b17;
+}
+
+#header {
+    background-color: #431b98;
+    margin-top: -10px; 
+    margin-left: -10px;
+    margin-right: 0px;
+}
+
+#footer {
+    background-color: #431b98;
+    margin-bottom: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+#Skills, #Portfolio, #Contact, #AboutMe {
+    background-color: #61DB24;
+    width: 60%;
+    margin-right: 10%;
+    margin-left: 20%;
+}
+
+#ColoredText {
+    color: #F906DE;
+}
+
+h2 {
+    color:blueviolet;
+    text-align: left;
+    margin-left: 10%;
+}
+
+footer, header {
+    background-color: black;
+    font-family:'Times New Roman', Times, serif;
+    color: white;
+}
+
+#GameShowcase img {
+    margin-left: 5%;
+}
+
+#GameShowcase h3 {
+    text-align: left;
+    margin-left: 15%;
+}
+
+#GameShowcase p {
+    margin-right: 5%;
+    margin-left: 45%;
+    text-align: right;
+}
+
+#Game2Showcase {
+    margin-right: 5%;
+    margin-left: 0%;
+    text-align: left;
+}
+
+#Game2Showcase h3 {
+    text-align: right;
+    margin-right: 15%;
+}
+
+#Game2Showcase p {
+    margin-left: 5%;
+    margin-right: 50%;
+    text-align: left;
+}
+
+#h3Coloring {
+    color:blueviolet;
+}
+
+#Contact h3 {
+    text-align: left;
+    color:blueviolet;
+    margin-left: 25%;
+}
+
+#Contact #Submit {
+    margin-top: 2%;
+    margin-left: 35%;
+    width:130px; 
+    height:30px;
 }
