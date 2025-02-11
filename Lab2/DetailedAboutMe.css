@@ -5,18 +5,12 @@ html {
     background-color: #439b17;
 }
 
-#header {
-    background-color: #431b98;
+header {
     margin-top: -10px; 
-    margin-left: -10px;
-    margin-right: 0px;
 }
 
-#footer {
-    background-color: #431b98;
+footer {
     margin-bottom: -10px;
-    margin-left: -10px;
-    margin-right: -10px;
 }
 
 #Skills, #Portfolio, #Contact, #AboutMe {
@@ -37,9 +31,11 @@ h2 {
 }
 
 footer, header {
-    background-color: black;
+    background-color: #431b98;
     font-family:'Times New Roman', Times, serif;
     color: white;
+    margin-left: -10px;
+    margin-right: -20px;
 }
 
 #GameShowcase img {
