@@ -1,0 +1,30 @@
+@media screen and (min-width: 1000px)
+{
+    body {
+        background-color: chartreuse;
+    }
+}
+
+@media screen and (max-width: 1000px)
+{
+body {
+    background-color: blue;
+}
+img 
+{   
+    display: block;
+}
+
+}
+
+@media screen and (max-width: 400px)
+{
+body {
+    background-color: magenta;
+}
+}
+
+img 
+{   
+    width: 48%;
+}
