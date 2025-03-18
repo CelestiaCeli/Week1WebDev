@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building a Wordle Setup in HTML & Javascript</title>
+
+    <style>
+        body {
+            background-color: brown;
+        }
+
+        h1 {
+
+        }
+        hr {
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+        input {
+            margin-right: 0.75%;
+        }
+    </style>
+
+</head>
+<body>
+
+
+    <div id="WordGenerator">
+
+            <!--Word Generator Script-->
+        <script>
+            function apiCall(){
+                var GeneratedWord;
+               fetch('https://random-word-api.vercel.app/api?words=1&length=5')
+               .then(response => {
+                   if (!response.ok) {
+                       throw new Error('Network response was not ok');
+                       document.getElementById("GeneratedWord").placeholder = error;
+                   }
+                   return response.json();
+                   })
+               .then(data => {
+                   console.log('Data:', data);
+                   GeneratedWord = data[0];
+                   console.log(GeneratedWord)
+                   document.getElementById("GeneratedWord").placeholder = GeneratedWord;
+                   // Hnadle the data here
+               })
+                .catch (error => { console.errror('Error fetching data:', error);
+               });
+            }
+        </script>
+        
+
+        <h1>
+            Generate a Random 5-Letter Word
+        </h1>
+        <p>Here I will generate a random 5-letter word! Don't you love redundant descriptions that explain what the title LITERALLY just said????????</p>
+        <button onclick="apiCall()">Click to get a 5 letter word</button>
+        <br> <br>
+        <input id="GeneratedWord" type="text" disabled placeholder="Your word will appear here!">
+
+    </div>
+
+    <hr>
+    <!--Word Validator Script-->
+    <script>
+function CheckWord() {
+    var myWord = document.getElementById("myWord").value;
+        
+        var url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + myWord;
+        var message = document.getElementById("ValidatorMessage");
+        var Validator = document.getElementById("ValidatorChecker");
+
+        fetch(url)
+        .then (response => {
+
+            if (!response.ok) {
+                throw new Error (`Network response was not ok`);
+            }
+            return response.json();
+            })
+            .then(data => {
+                console.log(`Data:`, data);
+            message.innerHTML = `<p>Your word: ${myWord} is a word</p>`;
+                Validator.innerHTML = `<p>Valid</p>`;
+            })
+            .catch (error => {
+                console.error(`Error fetching data:`, error);
+                message.innerHTML = `<p>Your word: ${myWord} is made up </p>`;
+                Validator.innerHTML = `<p>Invalid</p>`;
+            });
+}
+
+    </script>
+
+    <div id="WordValidator">
+        <h1>Ok, but are your words valid?</h1>
+        <p>Check with this super sneaky dictionary!!!!!!!!!!!!!!!!!</p>
+
+        <input id="myWord" type="text" placeholder="Enter your word here!"> <div id="ValidatorChecker"></div>
+    <button onclick="CheckWord()">Check</button>
+
+
+    <div id="ValidatorMessage"></div>
+    </div>
+
+    <hr>
+
+    <div id="Wordle">
+
+        <!--Wordle Script-->
+        <script>
+window.onload = ()=>{
+    console.log("Page Loaded")
+    generateWordle()
+}
+
+function generateWordle(){
+    var container = document.getElementById("WordleContainer");
+    for(var ii = 0; ii < 6; ii++) {
+
+        var div = document.createElement("div");
+        //create inner loop for columns
+        for(var jj = 0; jj < 5; jj++)
+        {
+                var Input = document.createElement("input");
+                Input.style.width = "1.5ch";
+                Input.maxLength = 1;
+                div.appendChild(Input);
+                console.log(div);
+        }
+        container.appendChild(div);
+        container.innerHTML += `<br>`;
+        
+    }
+    container.firstChild.firstChild.focus();
+    var DivArray = querySelector("input[input]");
+    console.log(DivArray);
+    console.log(document.activeElement());
+}
+        </script>
+
+        <h1>Wordle Input Grid</h1>
+        <p>To benownst to all, shallen't it be a grid of perchance in possibilties of a 6 rowed. <br> In addition, a 5 columned, grid. It shows keen similarities in sharpness <br> to the interactive multimedia entertainment placement which goes by the title such as "Wordle".....</p>
+    
+        <div id="WordleContainer"></div>
+    </div>
+
+</body>
+</html>

@@ -1,4 +1,7 @@
 
+var Parent = document.getElementById("Container");
+var Children = [];
+var CurrentIndex = 0;
 
 function CheckWord() {
     var myWord = document.getElementById("myWord").value;
@@ -24,35 +27,53 @@ function CheckWord() {
             });
 }
 window.onload = ()=>{
-    console.log("Page Loaded")
-    generateWordle()
+    console.log("Page Loaded");
+    generateWordle();
 }
 
 function generateWordle(){
     var container = document.getElementById("Container");
     for(var ii = 0; ii < 6; ii++) {
-
         var div = document.createElement("div");
+        Children.push(div);
         //create inner loop for columns
         for(var jj = 0; jj < 5; jj++)
         {
                 var Input = document.createElement("input");
-                Input.style.width = "1ch";
+                Input.style.width = "1.5ch";
+                Input.type = "text";
                 Input.maxLength = 1;
+                if (ii != 0)
+                    {
+                        Input.disabled = true;
+                    }
                 div.appendChild(Input);
                 console.log(div);
         }
         container.appendChild(div);
         container.innerHTML += `<br>`;
-        
     }
-    var DivArray = querySelectorAll("div")
+    container.firstChild.firstChild.focus();
+    var DivArray = querySelector("input[input]");
+    console.log(DivArray);
+    console.log(document.activeElement());
 }
 
 function OnKeyboard()
 {
-    var container = document.getElementById("Container");
+    var Parent = document.getElementById("Container");
+    var innerDiv = Parent.childNodes[CurrentIndex];
+    var FinalFinalWord = [];
+    var FinalWord = [];
+    var Word = ""
+    console.log(innerDiv);
+    for(var i = 0; i < 5; i++)
+    {
+        FinalWord.push(innerDiv.childNodes[i]);
+        console.log(Array.from(FinalWord[i].value));
+        FinalFinalWord.push(FinalWord[i].value);
+    }
 
-    var ElementFocus = container.querySelector("input[autofocus]");
-    console.log(ElementFocus.parentElement)
+    console.log(FinalFinalWord);
+
 }
