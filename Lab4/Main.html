@@ -19,6 +19,7 @@
         }
         input {
             margin-right: 0.75%;
+            margin-bottom: 0.75%;
         }
     </style>
 
@@ -119,7 +120,7 @@ window.onload = ()=>{
 
 function generateWordle(){
     var container = document.getElementById("WordleContainer");
-    for(var ii = 0; ii < 6; ii++) {
+    for(var ii = 0; ii <= 6; ii++) {
 
         var div = document.createElement("div");
         //create inner loop for columns
@@ -128,17 +129,68 @@ function generateWordle(){
                 var Input = document.createElement("input");
                 Input.style.width = "1.5ch";
                 Input.maxLength = 1;
+                Input.type = "text";
+                Input.setAttribute("oninput", "OnKeyboard(this)")
                 div.appendChild(Input);
                 console.log(div);
         }
         container.appendChild(div);
-        container.innerHTML += `<br>`;
+
+        //This code adds an "onKeyUp" event to each child div of container. (row)
+        var childs = container.children;
+        for (ii = 0; ii< childs.length;ii++){
+             childs[ii].onkeyup = goNext;    
+    }
         
     }
     container.firstChild.firstChild.focus();
     var DivArray = querySelector("input[input]");
     console.log(DivArray);
     console.log(document.activeElement());
+
+
+    function goNext(event) {
+    //https://stackoverflow.com/questions/15595652/focus-next-input-once-reaching-maxlength-value
+    var target = event.srcElement; //checks the srcEement or the target if srcElement is null
+    var myLength = target.value.length; //find the length of the text in the input
+    if (myLength >= 1) { //if we entered a single character
+        var next = target; //sets self to current target (Temporary)
+        while (next = next.nextElementSibling) { //goes to the next sibling element  that is an "input tag"
+            if (next == null) //if it finds a null value(end of children)
+                break; //exit loop
+            if (next.tagName.toLowerCase() === "input") { //if the value is an input
+                next.focus(); //focus on it.
+                break;
+            }
+        }
+    }
+    else if (myLength === 0) {
+        var previous = target;
+        while (previous = previous.previousElementSibling) {
+            if (previous == null)
+                break;
+            if (previous.tagName.toLowerCase() === "input") {
+                previous.focus();
+                break;
+            }
+        }
+    }
+}
+
+
+}
+
+function OnKeyboard(ooglaboogla)
+{
+    console.log(ooglaboogla.value)
+    if (/[A-Za-z]/.test(ooglaboogla.value))
+    {
+        ooglaboogla.value = ooglaboogla.value.toUpperCase()
+    }
+    else
+    {
+        ooglaboogla.value = "";
+    }
 }
         </script>
 
