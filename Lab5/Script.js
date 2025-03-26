@@ -1,6 +1,8 @@
 var GeneratedWord;
 var IndexPosition = 0;
-var Guesses;
+var Guesses = 0;
+var Rows = 5;
+var Columns = 6;
 
 function CheckWord() {
     const container = document.getElementById("WordleContainer");
@@ -19,8 +21,9 @@ function CheckWord() {
     var myWord = ChosenWord;
     var url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + myWord;
 
-
-    fetch(url)
+    if (ChosenWord.length >= Rows)
+    {
+        fetch(url)
     .then (response => {
     
         if (!response.ok) {
@@ -30,76 +33,90 @@ function CheckWord() {
         })
         .then(data => {
             console.log(`Data:`, data);
-            WordValid = true;
+            WordPasser(ChosenWord)
         })
         .catch (error => {
             console.error(`Error fetching data:`, error);
             WordValid = false;
-        });
+        }); 
+    }
 
+}
 
+function WordPasser(ChosenWord)
+{
+    Guesses += 1;
+    const container = document.getElementById("WordleContainer");
 
-    if (ChosenWord.length >= 5 && WordValid == true)
-    {
+    console.log(Guesses)
+
         if (ChosenWord == GeneratedWord)
             {
                 alert("Winner!!!")
             }
-        else 
-        {
-            Guesses += 1;
-            console.log("LOSER!!!!!!!!")
-        }
-
-        console.log(container.childNodes[IndexPosition].childNodes[0])
-        for(i = 0; i < container.childNodes[IndexPosition].childNodes.length; i++)
-        {
-            container.childNodes[IndexPosition].childNodes[i].disabled = true;
-        }
-
-        IndexPosition += 1;
-        console.log(container.childNodes[IndexPosition])
-        for(i = 0; i < container.childNodes[IndexPosition].childNodes.length; i++)
-        {
-            container.childNodes[IndexPosition].childNodes[i].disabled = false;
-        }
-    }
-    else
-    {
-        console.log("Not enough characters!");
-    }
-
-    if (Guesses >= 5)
-    {
-        alert("YOU LOSE LMAO")
-    }
+            else 
+            {
+                console.log("LOSER!!!!!!!!")
+            }
+    
+            console.log(container.childNodes[IndexPosition].childNodes[0])
+            for(i = 0; i < container.childNodes[IndexPosition].childNodes.length; i++)
+            {
+                container.childNodes[IndexPosition].childNodes[i].disabled = true;
+            }
+    
+            IndexPosition += 1;
+            console.log(container.childNodes[IndexPosition])
+            for(i = 0; i < container.childNodes[IndexPosition].childNodes.length; i++)
+            {
+                container.childNodes[IndexPosition].childNodes[i].disabled = false;
+            }
+            if (Guesses >= Columns)
+                {
+                    alert("YOU LOSE LMAO")
+                }
 
 }
 
 function apiCall(){
     GeneratedWord;
-   fetch('https://random-word-api.vercel.app/api?words=1&length=5')
-   .then(response => {
-       if (!response.ok) {
-           throw new Error('Network response was not ok');
-       }
-       return response.json();
-       })
-   .then(data => {
-       console.log('Data:', data);
+    if (Rows >= 3 && Rows <= 9)
+    {
+        fetch('https://random-word-api.vercel.app/api?words=1&length=' + Rows)
+        .then(response => {
+            if (!response.ok) {
+                GeneratedWord = "N/A";
+                SetWord()
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+            })
+        .then(data => {
+            console.log('Data:', data);
+    
+            GeneratedWord = data[0].toUpperCase();
+    
+            SetWord()
+            // Hnadle the data here
+        })
+        .catch (error => { console.error('Error fetching data:', error);
+        });
+    }
+    else 
+    {
+        GeneratedWord = "N/A";
+        SetWord()
+    }
+}
 
-       GeneratedWord = data[0].toUpperCase();
+function SetWord()
+{
+    var FinalWord = document.getElementById("Answer");
+    var FinalWordElement = document.createElement("P");
 
-       var FinalWord = document.getElementById("Answer");
-       var FinalWordElement = document.createElement("P");
-
-       FinalWordElement.textContent = GeneratedWord;
-       FinalWord.appendChild(FinalWordElement);
-       console.log(GeneratedWord);
-       // Hnadle the data here
-   })
-   .catch (error => { console.error('Error fetching data:', error);
-   });
+    FinalWordElement.textContent = GeneratedWord;
+    FinalWord.appendChild(FinalWordElement);
+    console.log(GeneratedWord);
 }
 
 
@@ -111,11 +128,11 @@ window.onload = ()=>{
 
 function generateWordle(){
     const container = document.getElementById("WordleContainer");
-    for(var ii = 0; ii <= 6; ii++) {
+    for(var ii = 0; ii <= Columns; ii++) {
     
         var div = document.createElement("div");
         //create inner loop for columns
-        for(var jj = 0; jj < 5; jj++)
+        for(var jj = 0; jj < Rows; jj++)
         {
                 var Input = document.createElement("input");
                 Input.style.width = "1.5ch";
