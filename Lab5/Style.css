@@ -4,9 +4,25 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-div {
-    align-items: center;
+#WorldeContainer
+{
+    color:aqua;
 }
-h2 {
+h2, p {
+    color: white;
+}
+
+h2, p, div, button {
+    align-items: center;
     text-align:center;
+}
+
+#WordleRegenerator input
+{
+    width: 1.5ch;
+}
+
+#Credits img
+{
+    width: 3%;
 }

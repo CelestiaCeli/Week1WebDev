@@ -3,6 +3,7 @@ var IndexPosition = 0;
 var Guesses = 0;
 var Rows = 5;
 var Columns = 6;
+var ShowCredits = false
 
 function CheckWord() {
     const container = document.getElementById("WordleContainer");
@@ -53,6 +54,7 @@ function WordPasser(ChosenWord)
         if (ChosenWord == GeneratedWord)
             {
                 alert("Winner!!!")
+                container.childNodes[IndexPosition].childNodes[i].disabled = true;
             }
             else 
             {
@@ -72,9 +74,9 @@ function WordPasser(ChosenWord)
                 container.childNodes[IndexPosition].childNodes[i].disabled = false;
             }
             if (Guesses >= Columns)
-                {
-                    alert("YOU LOSE LMAO")
-                }
+            {
+                alert("YOU LOSE LMAO")
+            }
 
 }
 
@@ -111,22 +113,75 @@ function apiCall(){
 
 function SetWord()
 {
-    var FinalWord = document.getElementById("Answer");
+    const FinalWord = document.getElementById("Answer");
     var FinalWordElement = document.createElement("P");
 
+    FinalWord.hidden = true;
     FinalWordElement.textContent = GeneratedWord;
     FinalWord.appendChild(FinalWordElement);
     console.log(GeneratedWord);
 }
 
+function RevealWord()
+{
+    FinalWord = document.getElementById("Answer")
+    if (FinalWord.hidden == true)
+    {
+        document.getElementById("Answer").hidden = false;
+    }
+    else
+    {
+        document.getElementById("Answer").hidden = true;
+    }
+}
+
 
 window.onload = ()=>{
     console.log("Page Loaded");
-    generateWordle();
-    apiCall();
+    Resetter();
 }
 
+
 function generateWordle(){
+    let ColumnElement = document.getElementById("Columns");
+    let RowElement = document.getElementById("Rows");
+    let ProgressElement = document.getElementById("ProgressReport");
+
+    console.log(ColumnElement.value);
+    Rows = RowElement.value;
+    Columns = ColumnElement.value;
+    if (Rows >= 3 && Rows <= 9)
+    {
+        Resetter();
+        ProgressElement.innerHTML = ``;
+    }
+    else
+    {
+        ProgressElement.innerHTML = `<p>Failed to set! Please ensure row is between 3 - 9!</p>`;
+    }
+}
+
+function Resetter()
+{
+    const FinalWord = document.getElementById("Answer");
+    const container = document.getElementById("WordleContainer");
+    Guesses = 0;
+    IndexPosition = 0;
+
+    for(var i = 0; i < container.childNodes.length; i++)
+    {
+        container.childNodes[i].remove();
+    }
+
+    for(var ii = 0; ii < FinalWord.childNodes.length; ii++)
+    {
+        FinalWord.childNodes[ii].remove();
+    }
+    WordleGenerator();
+}
+
+function WordleGenerator()
+{
     const container = document.getElementById("WordleContainer");
     for(var ii = 0; ii <= Columns; ii++) {
     
@@ -138,7 +193,7 @@ function generateWordle(){
                 Input.style.width = "1.5ch";
                 Input.maxLength = 1;
                 Input.type = "text";
-                Input.setAttribute("oninput", "OnKeyboard(this)")
+                Input.setAttribute("oninput", "OnKeyboard(this)");
                 div.appendChild(Input);
                 console.log(div);
                 Input.disabled = true;
@@ -155,8 +210,9 @@ function generateWordle(){
         var childs = container.children;
         for (ii = 0; ii< childs.length;ii++){
              childs[ii].onkeyup = goNext;    
+        }
     }
-
+    apiCall();
 }
 
 function goNext(event) {
@@ -186,7 +242,6 @@ function goNext(event) {
         }
     }
 }
-}
 
 function OnKeyboard(ooglaboogla)
 {
@@ -198,5 +253,19 @@ function OnKeyboard(ooglaboogla)
     else
     {
         ooglaboogla.value = "";
+    }
+
+
+}
+
+function Credits()
+{
+    if (ShowCredits == true)
+    {
+
+    }
+    else
+    {
+
     }
 }

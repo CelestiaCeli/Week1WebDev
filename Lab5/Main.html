@@ -20,14 +20,33 @@
 
     <br>
 
+    <div>
     <button id="Checker" onclick=CheckWord()>
         Check
     </button>
-
+    </div>
     <br>
 
+
+    <div id="WordleRegenerator">
+        <button onclick=generateWordle()>Regenerate</button>
+        <br>
+        <p>Rows:    Columns:</p>
+        <input id="Rows"> <input id="Columns">
+        <div id="ProgressReport"></div>
+    </div>
+
+    <br>
+    <br>
+
+    <div><button onclick=RevealWord()>Reveal Word</button></div>
     <div id="Answer"></div>
 
-    <p>https://www.pexels.com/photo/pink-and-purple-wallpaper-1616403/</p>
+    <br> <br>
+    <div id="Credits"> 
+        <h3>Credits:</h3>
+        <img src="Arrow.png"><button onclick=Credits()></button></img>
+        <p>https://www.pexels.com/photo/pink-and-purple-wallpaper-1616403/</p>
+    </div>
 </body>
 </html>
