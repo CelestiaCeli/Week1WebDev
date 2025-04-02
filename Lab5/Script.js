@@ -4,6 +4,7 @@ var Guesses = 0;
 var Rows = 5;
 var Columns = 6;
 var ShowCredits = false
+var Win = false;
 
 function CheckWord() {
     const container = document.getElementById("WordleContainer");
@@ -53,8 +54,10 @@ function WordPasser(ChosenWord)
 
         if (ChosenWord == GeneratedWord)
             {
+
                 alert("Winner!!!")
-                container.childNodes[IndexPosition].childNodes[i].disabled = true;
+                Win = true;
+                
             }
             else 
             {
@@ -71,7 +74,10 @@ function WordPasser(ChosenWord)
             console.log(container.childNodes[IndexPosition])
             for(i = 0; i < container.childNodes[IndexPosition].childNodes.length; i++)
             {
-                container.childNodes[IndexPosition].childNodes[i].disabled = false;
+                if (Win == false)
+                    {
+                        container.childNodes[IndexPosition].childNodes[i].disabled = false;   
+                    }
             }
             if (Guesses >= Columns)
             {
@@ -97,7 +103,6 @@ function apiCall(){
             console.log('Data:', data);
     
             GeneratedWord = data[0].toUpperCase();
-    
             SetWord()
             // Hnadle the data here
         })
@@ -137,6 +142,11 @@ function RevealWord()
 
 
 window.onload = ()=>{
+    let ColumnElement = document.getElementById("Columns");
+    let RowElement = document.getElementById("Rows");
+    ColumnElement.value = 6;
+    RowElement.value = 5;
+
     console.log("Page Loaded");
     Resetter();
 }
@@ -147,9 +157,10 @@ function generateWordle(){
     let RowElement = document.getElementById("Rows");
     let ProgressElement = document.getElementById("ProgressReport");
 
-    console.log(ColumnElement.value);
     Rows = RowElement.value;
     Columns = ColumnElement.value;
+
+    console.log(ColumnElement.value);
     if (Rows >= 3 && Rows <= 9)
     {
         Resetter();
@@ -167,16 +178,9 @@ function Resetter()
     const container = document.getElementById("WordleContainer");
     Guesses = 0;
     IndexPosition = 0;
+    container.innerHTML = "";
+    FinalWord.innerHTML = "";
 
-    for(var i = 0; i < container.childNodes.length; i++)
-    {
-        container.childNodes[i].remove();
-    }
-
-    for(var ii = 0; ii < FinalWord.childNodes.length; ii++)
-    {
-        FinalWord.childNodes[ii].remove();
-    }
     WordleGenerator();
 }
 
@@ -195,7 +199,6 @@ function WordleGenerator()
                 Input.type = "text";
                 Input.setAttribute("oninput", "OnKeyboard(this)");
                 div.appendChild(Input);
-                console.log(div);
                 Input.disabled = true;
                 if (ii == 0)
                 {
@@ -260,12 +263,17 @@ function OnKeyboard(ooglaboogla)
 
 function Credits()
 {
+    var Credits = document.getElementById("ActualCredits");
+    console.log(Credits)
     if (ShowCredits == true)
     {
-
+        Credits.hidden = false;
+        ShowCredits = false;
     }
     else
     {
-
+        Credits.hidden = true;
+        ShowCredits = true;
+        console.log("OK");
     }
 }

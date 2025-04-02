@@ -1,6 +1,6 @@
 body {
     align-items: center;
-    background-image: url('BackgroundImage.jpg');
+    background-image: url('Assets/BackgroundImage.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -12,9 +12,14 @@ h2, p {
     color: white;
 }
 
+h2 {
+    font-family: JoogaDooga;
+}
+
 h2, p, div, button {
     align-items: center;
     text-align:center;
+
 }
 
 #WordleRegenerator input
@@ -25,4 +30,13 @@ h2, p, div, button {
 #Credits img
 {
     width: 3%;
+}
+
+@font-face {
+    font-family: JoogaDooga;
+    src: url("Assets/Backso.ttf");
+}
+
+body {
+    size: 200%;
 }
