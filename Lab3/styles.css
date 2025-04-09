@@ -82,7 +82,6 @@ footer {
     .image-container
     {
         display: flex;
-        flex-direction: row-reverse;
         align-items:baseline;
         gap: 10px;
     }
