@@ -25,6 +25,7 @@ h2, p, div, button {
 #WordleRegenerator input
 {
     width: 1.5ch;
+    border: 2px solid orange;
 }
 
 #Credits img
@@ -37,6 +38,25 @@ h2, p, div, button {
     src: url("Assets/Backso.ttf");
 }
 
-body {
-    size: 200%;
+p 
+{
+    font-family: Paragraph;
+}
+
+@font-face 
+{
+    font-family: Paragraph;
+    src: url("Assets/Morning\ Bright.otf")
+}
+
+.Rows 
+{
+    margin-right: 5%;
+}
+
+input {
+    border: 2px solid green;
+    width:1.5ch; 
+    margin-right: 0.5%; 
+    margin-bottom: 0.5%;
 }

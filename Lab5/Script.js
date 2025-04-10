@@ -3,12 +3,12 @@ var IndexPosition = 0;
 var Guesses = 0;
 var Rows = 5;
 var Columns = 6;
-var ShowCredits = false
+var ShowCredits = false;
 var Win = false;
 
 function CheckWord() {
     const container = document.getElementById("WordleContainer");
-    var div = container.childNodes[IndexPosition]
+    var div = container.childNodes[IndexPosition];
     var ChosenWord = "";
     console.log(div.children.length);
     for(var i = 0; i < div.children.length; i++)
@@ -18,7 +18,7 @@ function CheckWord() {
     }
     console.log(ChosenWord);
 
-    var WordValid;
+    
 
     var myWord = ChosenWord;
     var url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + myWord;
@@ -35,7 +35,7 @@ function CheckWord() {
         })
         .then(data => {
             console.log(`Data:`, data);
-            WordPasser(ChosenWord)
+            WordPasser(ChosenWord);
         })
         .catch (error => {
             console.error(`Error fetching data:`, error);
@@ -49,19 +49,41 @@ function WordPasser(ChosenWord)
 {
     Guesses += 1;
     const container = document.getElementById("WordleContainer");
+    var div = container.childNodes[IndexPosition];
+    var YellowText;
 
-    console.log(Guesses)
+    for(var i = 0; i < div.children.length; i++)
+    {
+        if (div.children[i].value == GeneratedWord[i])
+            {
+                div.children[i].style = "background-color: green;";
+            }        
+            else
+            {
+                for(var ii = 0; ii < GeneratedWord.length; ii++)
+                {
+                    if (div.children[i].value == GeneratedWord[ii] && div.children[i].value != YellowText)
+                    {
+                        div.children[i].style = "background-color: yellow;";
+                        YellowText = div.children[i].value;
+                    }
+                }
+            }
+        console.log(YellowText);
+    }
+
+    console.log(Guesses);
 
         if (ChosenWord == GeneratedWord)
             {
 
-                alert("Winner!!!")
+                alert("Winner!!!");
                 Win = true;
                 
             }
             else 
             {
-                console.log("LOSER!!!!!!!!")
+                console.log("LOSER!!!!!!!!");
             }
     
             console.log(container.childNodes[IndexPosition].childNodes[0])
@@ -71,7 +93,7 @@ function WordPasser(ChosenWord)
             }
     
             IndexPosition += 1;
-            console.log(container.childNodes[IndexPosition])
+            console.log(container.childNodes[IndexPosition]);
             for(i = 0; i < container.childNodes[IndexPosition].childNodes.length; i++)
             {
                 if (Win == false)
@@ -81,12 +103,13 @@ function WordPasser(ChosenWord)
             }
             if (Guesses >= Columns)
             {
-                alert("YOU LOSE LMAO")
+                alert("YOU LOSE LMAO");
             }
 
 }
 
-function apiCall(){
+function apiCall()
+{
     GeneratedWord;
     if (Rows >= 3 && Rows <= 9)
     {
@@ -112,7 +135,7 @@ function apiCall(){
     else 
     {
         GeneratedWord = "N/A";
-        SetWord()
+        SetWord();
     }
 }
 
@@ -129,7 +152,7 @@ function SetWord()
 
 function RevealWord()
 {
-    FinalWord = document.getElementById("Answer")
+    FinalWord = document.getElementById("Answer");
     if (FinalWord.hidden == true)
     {
         document.getElementById("Answer").hidden = false;
@@ -149,6 +172,7 @@ window.onload = ()=>{
 
     console.log("Page Loaded");
     Resetter();
+    Credits();
 }
 
 
@@ -264,7 +288,7 @@ function OnKeyboard(ooglaboogla)
 function Credits()
 {
     var Credits = document.getElementById("ActualCredits");
-    console.log(Credits)
+    console.log(Credits);
     if (ShowCredits == true)
     {
         Credits.hidden = false;
