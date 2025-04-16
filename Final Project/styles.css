@@ -33,7 +33,7 @@ h2, p {
     margin-right: 20%;
 }
 
-#GameImage
+.GameImage
 {
     width: 60%;
 }
@@ -82,3 +82,7 @@ h2, p {
 
 /*Huuuge hover list of Games*/
 
+#Gooly:hover
+{
+    src:url("Assets/Games/GoolyAnim.webp");
+}
