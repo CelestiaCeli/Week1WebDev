@@ -3,9 +3,14 @@ CSS IDEAS
 - Click on the game's image and it opens a pop up which you can then press to lead you to the extended site focused on that game page
 - Art showcase slideshow - has arrows to allow u to see more art
 - Animation focus
+
+Day 2 Current Goals
+
+- Clean up the project layout
 */
 
 var ThemeMode = true;
+var Clicked = false;
 
 function OnHover(element)
 {
@@ -20,7 +25,7 @@ function OnHover(element)
     switch(element)
     {
         case(Adnillihation):
-            File = "Assets/Games/OuttaThisHellAnim.webp";
+            File = "Assets/Games/AdnilliationAnim.webp";
             Game = true;
             break;
         case(AllSeeing):
@@ -44,15 +49,15 @@ function OnHover(element)
             Game = true;
             break;
         case(Wordle):
-            File = "Assets/Games/MineSweepingAnim.webp";
+            File = "Assets/Games/WordleCloneAnim.webp";
             Game = true;
             break;
         case(SealWebsite):
-            File = "Assets/Games/MineSweepingAnim.webp";
+            File = "Assets/Games/SealWebsiteAnim.webp";
             Game = true;
             break;
         case(AboutMeBETA):
-            File = "Assets/Games/MineSweepingAnim.webp";
+            File = "Assets/Games/PortfolioBetaAnim.webp";
             Game = true;
             break;
     }
@@ -113,129 +118,13 @@ function OnLeave(element)
             File = "Assets/Games/RepresentationImage.webp";
             Game = true;
             break;
-
     }
+    
 
     Image = element.getElementsByTagName("img");    
     Image[0].src = File;
     Text = element.getElementsByTagName("p");
     Text[0].hidden = false;
-}
-
-function OnClick(element)
-{
-    console.log("left");
-
-
-    switch(element)
-    {
-        case(Adnillihation):
-            Game = true;
-            break;
-        case(AllSeeing):
-            Game = true;
-            break;
-        case(Gooly):
-            Game = true;
-            break;
-        case(RootemTootem):
-            Game = true;
-            break;
-        case(Chained):
-            Game = true;
-            break;
-        case(MineSweeping):
-            Game = true;
-            break;
-        case(Wordle):
-            Game = true;
-            break;
-        case(SealWebsite):
-            Game = true;
-            break;
-        case(AboutMeBETA):
-            Game = true;
-            break;
-    }
-
-    if (Game)
-        {
-            var PopUpMenu = document.getElementById("GamePopUp");
-
-            var ParagraphText = PopUpMenu.getElementsByTagName("p");
-            var HeaderText = PopUpText.getElementsByTagName("h2");
-            var Button = PopUpText.getElementsByTagName("a");
-
-
-            console.log(ParagraphText);
-            PopUpMenu.hidden = false;
-
-            switch(element)
-            {
-                case(Adnillihation):
-                    HeaderText[0].innerText = "Total Adnillihation"
-                    ParagraphText[0].innerText = "This is a test!!";
-                    Button[0].href = "https://caflianutopia.itch.io/space-bars-and-bouncy-castles"
-
-                    break;
-                case(AllSeeing):
-                    HeaderText[0].innerText = "The AllSeeing"
-                    ParagraphText[0].innerText = "This is a test!!";
-                    Button[0].href = "https://caflianutopia.itch.io/space-bars-and-bouncy-castles"
-
-                    break;
-                case(Gooly):
-                    HeaderText[0].innerText = "Gooly"
-                    ParagraphText[0].innerText = "This is a test!!";
-                    Button[0].href = "https://caflianutopia.itch.io/space-bars-and-bouncy-castles"
-
-                    break;
-                case(RootemTootem):
-                    HeaderText[0].innerText = "Chained"
-                    ParagraphText[0].innerText = "This is a test!!";
-                    Button[0].href = "https://caflianutopia.itch.io/space-bars-and-bouncy-castles"
-
-                    break;
-                case(Chained):
-                    HeaderText[0].innerText = "MineSweeping"
-                    ParagraphText[0].innerText = "This is a test!!";
-                    Button[0].href = "https://caflianutopia.itch.io/space-bars-and-bouncy-castles"
-
-                    break;
-                case(MineSweeping):
-                    HeaderText[0].innerText = "Game Name here!"
-                    ParagraphText[0].innerText = "This is a test!!";
-                    Button[0].href = "https://caflianutopia.itch.io/space-bars-and-bouncy-castles"
-
-                    break;
-                case(Wordle):
-                    HeaderText[0].innerText = "Custom Wordle"
-                    ParagraphText[0].innerText = "A custom version of wordle I made during class that includes the ability to custom set the width and length of the grid!";
-                    Button[0].href = "../Lab5/Main.html"
-
-                    break;
-                case(SealWebsite):
-                    HeaderText[0].innerText = "The Seal Website"
-                    ParagraphText[0].innerText = "A seal website that scales with content!";
-                    Button[0].href = "../Lab3/index.html"
-
-                    break;
-                case(AboutMeBETA):
-                    HeaderText[0].innerText = "About me BETA"
-                    ParagraphText[0].innerText = "The old original stinky version of this website!!";
-                    Button[0].href = "../Lab2/DetailedAboutMe.html"
-
-                    break;
-            }
-        }
-
-    var Image = element.getElementsByTagName("img");
-    console.log(Image.width);
-    var Text = element.getElementsByTagName("p");
-
-    Text[0].hidden = true;
-
-
 }
 
 function ThemeSwitch(element)
@@ -246,14 +135,40 @@ function ThemeSwitch(element)
     ThemeMode = !ThemeMode;
     console.log(ThemeMode);
 
+    var Text = []
+
+    //Feel free to add any tag to change color on mode switch
+    Text.push(document.getElementsByTagName("p"));
+    Text.push(document.getElementsByTagName("h1"));
+    Text.push(document.getElementsByTagName("h2"));
+    Text.push(document.getElementsByTagName("h3"));
+    Text.push(document.getElementsByTagName("h4"));
+    console.log(Text);
+
     if (ThemeMode == false)
     {
-        element.src="Assets/Eye.png";
+        element.src="Assets/EyeMoon.png";
         document.body.style.backgroundImage="url(Assets/BackgroundDark.webp)";
+
+        for(var i = 0; i < Text.length; i++)
+        {
+            for(var ii = 0; ii < Text[i].length; ii++)
+            {
+                Text[i][ii].style.color="white";
+            }
+        }
     }
     else
     {
-        element.src="Assets/BurntEye.png";
+        element.src="Assets/BurningEye.png";
         document.body.style.backgroundImage="url(Assets/Background.webp)";
+
+        for(var i = 0; i < Text.length; i++)
+            {
+                for(var ii = 0; ii < Text[i].length; ii++)
+                {
+                    Text[i][ii].style.color="black";
+                }
+            }
     }
 }

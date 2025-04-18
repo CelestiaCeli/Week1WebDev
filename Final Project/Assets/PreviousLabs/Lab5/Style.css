@@ -1,0 +1,62 @@
+body {
+    align-items: center;
+    background-image: url('Assets/BackgroundImage.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#WorldeContainer
+{
+    color:aqua;
+}
+h2, p {
+    color: white;
+}
+
+h2 {
+    font-family: JoogaDooga;
+}
+
+h2, p, div, button {
+    align-items: center;
+    text-align:center;
+
+}
+
+#WordleRegenerator input
+{
+    width: 1.5ch;
+    border: 2px solid orange;
+}
+
+#Credits img
+{
+    width: 3%;
+}
+
+@font-face {
+    font-family: JoogaDooga;
+    src: url("Assets/Backso.ttf");
+}
+
+p 
+{
+    font-family: Paragraph;
+}
+
+@font-face 
+{
+    font-family: Paragraph;
+    src: url("Assets/Morning\ Bright.otf")
+}
+
+.Rows 
+{
+    margin-right: 5%;
+}
+
+input {
+    border: 2px solid green;
+    width:1.5ch; 
+    margin-right: 0.5%; 
+    margin-bottom: 0.5%;
+}

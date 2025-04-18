@@ -4,55 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="styles.css" rel="stylesheet">
+    <link href="MainStyles.css" rel="stylesheet">
     <script src="MainScript.js"></script>
 
     <title>Cesaster</title>
 </head>
 <body>
     
-    <div class="Showcase" id="Header">
-        <a href="Extended.html"><h1>Extended</h1></a> 
-        <a href="Main.html"><h1>Home</h1></a>
-        <a href="#Contact"><h1>Contact</h1></a>
-    </div>
+    <header>
+        <h1>
+            Cesaster
+        </h1>
+    
+        <nav class="Showcase" id="Header">
+            <a href="Extended.html"><h1>Extended</h1></a> 
+            <a href="Main.html"><h1>Home</h1></a>
+            <a href="#Contact"><h1>Contact</h1></a>
+        </nav>
+    </header>
 
     <div id="Menu">
     </div>
 
-        <div id="GamePopUp">
-            <img src="Assets/TextBox.png">
-    
-            <div id="PopUpText">
-                <h2>Game</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in dui molestie, porttitor ex congue, 
-                    venenatis massa. Duis venenatis, eros euismod efficitur blandit, nunc libero auctor turpis, in semper 
-                    eros eros tincidunt mi. Donec in magna ut augue suscipit ultrices.</p>
-                    <br>
-                    <a>See More</a>
-            </div>
+        <a onclick=ThemeSwitch(ThemesImage) id="Themes"><img src="Assets/BurningEye.png" alt="Activate theme swap" id="ThemesImage"></a>
+
+    <main>
+        <div class="Seperator">
+            <div><br></div>
+            <img class="SeperatorImage" src="Assets/Projects.webp" alt="A broken image that's supposed to contain an overview of all my projects BUT THE GIF CONVERTER WON'T WORK GEE THANK YOU">
+            <div><br></div>
         </div>
 
 
-        <a onclick=ThemeSwitch(ThemesImage) id="Themes"><img src="Assets/BurntEye.png" alt="Light Mode" id="ThemesImage"></a>
-
-    <div>
-
-        <img id="SeperatorImage" src="Assets/Projects.webp">
-        <div class="Main">
+        <section class="Main">
             
-            <img src="Assets/Art/Fursona_2.webp">
+            <img src="Assets/Art/nyanile.png" alt="An image of my fursona!">
             <div class="ImageText">
                 <br> <br> <br> <br>
                 <h1>Salutations! I'm a Cesaster!</h1>
                 <h3 >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in dui molestie, porttitor ex congue, 
-                    venenatis massa. Duis venenatis, eros euismod efficitur blandit, nunc libero auctor turpis, in semper 
-                    eros eros tincidunt mi. Donec in magna ut augue suscipit ultrices. </h3> 
-                    <h3> Praesent non hendrerit lectus. Aenean 
-                    vel libero ipsum. Donec id sem ultrices, porta nisl id, euismod nisi. Quisque tellus libero, volutpat id 
-                    eleifend a, varius in neque. Donec est erat, varius ut dolor nec, mattis mollis ante. Class aptent taciti 
-                    sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    I'm a 20 year old canadian game designer who loves and specialises in programming and art!
+                    I like to explore different subjects and unique mechanics that follow a standard! </h3> 
+                    <h3> I'm always open to consideration from professionals, or even any friends who want to contact me!
+
                 </h3> 
 
                 <h1>Skills</h1>
@@ -65,122 +59,141 @@
                 </ul>
                 <h1>Below you will see examples of my past work/exprience!</h1>
             </div>
-        </div>
 
-        <h2>Previous Works</h2>
-        <div class="Showcase" id="Games">
+        </section>
+
+            <h2>Previous Works</h2>
+            <div class="Showcase" id="Games">
             <div id="Adnillihation">
                 <h2>Total Adnillihation</h2>
-                <a onmouseover=OnHover(Adnillihation) onmouseleave=OnLeave(Adnillihation) onclick=OnClick(Adnillihation)><img src="Assets/Games/Gooly.webp" class="GameImage"></a>
+                <a onmouseover=OnHover(Adnillihation) onmouseleave=OnLeave(Adnillihation) onclick=OnClick(Adnillihation)><img src="Assets/Games/Gooly.webp" class="GameImage" alt="An image of my game named 'Total Adnillihation'"></a>
                 <p>
                     Become a door to door manipulator! *ahem* salesman. Who promises the acomplishments of peoples dreams and tries to grab onto any loose threads
-You're actually an alien
+                    You're actually an alien
                 </p>
+                <a href="https://caflianutopia.itch.io/space-bars-and-bouncy-castles">Learn More</a>
+
             </div>
 
             <div id="AllSeeing">
                 <h2>The AllSeeing</h2>
-                <a onmouseover=OnHover(AllSeeing) onmouseleave=OnLeave(AllSeeing) onclick=OnClick(AllSeeing)><img src="Assets/Games/AllSeeing.webp" class="GameImage"></a>
+                <a onmouseover=OnHover(AllSeeing) onmouseleave=OnLeave(AllSeeing) onclick=OnClick(AllSeeing)><img src="Assets/Games/AllSeeing.webp" class="GameImage" alt="An image of my game named 'AllSeeing'"></a>
                 <p>
                     A mix between classic rpgs, FPS, and turned based shooters! Get out of the box and don't use all your energy. Once you end your turn you must travel back and mix your footing and avoid the eyes from above. Run.
                 </p>
+                <a href="https://caflianutopia.itch.io/space-bars-and-bouncy-castles">Learn More</a>
             </div>
 
             <div id="Gooly">
                 <h2>Gooly</h2>
-                <a onmouseover=OnHover(Gooly) onmouseleave=OnLeave(Gooly) onclick=OnClick(Gooly)><img src="Assets/Games/Gooly.webp" class="GameImage"></a>
+                <a onmouseover=OnHover(Gooly) onmouseleave=OnLeave(Gooly) onclick=OnClick(Gooly)><img src="Assets/Games/Gooly.webp" class="GameImage" alt="An image of my game named 'Gooly'"></a>
                 <p>
                      tube. He has an obsession with bombs!! Travel across this compact free open land akin to collectathons. Collect bombs and travel across the lands!
                 </p>
+                <a href="https://caflianutopia.itch.io/space-bars-and-bouncy-castles">Learn More</a>
             </div>
 
             <div id="RootemTootem">
                 <h2>Rootem Tootem</h2>
-                <a onmouseover=OnHover(RootemTootem) onmouseleave=OnLeave(RootemTootem) onclick=OnClick(RootemTootem)><img src="Assets/Games/RootemTootem.webp" class="GameImage"></a>
+                <a onmouseover=OnHover(RootemTootem) onmouseleave=OnLeave(RootemTootem) onclick=OnClick(RootemTootem)><img src="Assets/Games/RootemTootem.webp" class="GameImage" alt="An image of my game named 'Rootem Tootem'"></a>
                 <p>
                     You accidentally killed your coworker and he wishes HELL upon you, you have to go through the lands of hell and defend yourself by taking apart EVERYTHING off the ground and using it to grow your powers. Time ticks and hell regenerates. QUICKLY!
                 </p>
+                <a href="https://caflianutopia.itch.io/space-bars-and-bouncy-castles">Learn More</a>
             </div>
 
             <div id="Chained">
                 <h2>Chained</h2>
-                <a onmouseover=OnHover(Chained) onmouseleave=OnLeave(Chained) onclick=OnClick(Chained)><img src="Assets/Games/Chained.webp" class="GameImage"></a>
+                <a onmouseover=OnHover(Chained) onmouseleave=OnLeave(Chained) onclick=OnClick(Chained)><img src="Assets/Games/Chained.webp" class="GameImage" alt="An image of my game named 'Chained'"></a>
                 <p>
                     Become a disasterous robot who accidentally got chained to the rails. They're split in three bodies now in this 3D schmup.
                 </p>
+                <a href="https://caflianutopia.itch.io/space-bars-and-bouncy-castles">Learn More</a>
             </div>
 
             <div id="MineSweeping">
                 <h2>MineSweeping</h2>
-                <a onmouseover=OnHover(MineSweeping) onmouseleave=OnLeave(MineSweeping) onclick=OnClick(MineSweeping)><img src="Assets/Games/Chained.webp" class="GameImage"></a>
+                <a onmouseover=OnHover(MineSweeping) onmouseleave=OnLeave(MineSweeping) onclick=OnClick(MineSweeping)><img src="Assets/Games/Chained.webp" class="GameImage" alt="An image of my game named 'Minesweeping'"></a>
                 <p>
                     Go on a wild detective goose chase as you find out why there's been so many bombings as of late. Put a stop to it in this minesweeper twist!
                 </p>
+                <a href="https://caflianutopia.itch.io/space-bars-and-bouncy-castles">Learn More</a>
+
             </div>
             
             <div id="Wordle">
                 <h2>Custom Wordle</h2>
-                <a onmouseover=OnHover(Wordle) onmouseleave=OnLeave(Wordle) onclick=OnClick(Wordle)><img src="Assets/Games/WordleClone.webp" class="GameImage"></a>
+                <a onmouseover=OnHover(Wordle) onmouseleave=OnLeave(Wordle) onclick=OnClick(Wordle)><img src="Assets/Games/WordleClone.webp" class="GameImage" alt="An image of my Wordle Clone"></a>
 
                 <p>A custom version of wordle I made during class that includes the ability to custom set the width and length of the grid!</p>
+                <a href="Assets/PreviousLabs/Lab5/Main.html">Learn More</a>
+
             </div>
 
             <div id="SealWebsite">
                 <h2>The Seal Website</h2>
-                <a onmouseover=OnHover(SealWebsite) onmouseleave=OnLeave(SealWebsite) onclick=OnClick(SealWebsite)><img src="Assets/Games/SealWebsite.webp" class="GameImage"></a>
+                <a onmouseover=OnHover(SealWebsite) onmouseleave=OnLeave(SealWebsite) onclick=OnClick(SealWebsite)><img src="Assets/Games/SealWebsite.webp" class="GameImage" alt="An image to the seal website"></a>
 
                 <p>A seal website that scales with content!</p>
+                <a href="Assets/PreviousLabs/Lab3/index.html">Learn More</a>
+
             </div>
 
             <div id="AboutMeBETA">
                 <h2>About me BETA</h2>
-                <a onmouseover=OnHover(AboutMeBETA) onmouseleave=OnLeave(AboutMeBETA) onclick=OnClick(AboutMeBETA)><img src="Assets/Games/RepresentationImage.webp" class="GameImage"></a>
+                <a onmouseover=OnHover(AboutMeBETA) onmouseleave=OnLeave(AboutMeBETA) onclick=OnClick(AboutMeBETA)><img src="Assets/Games/RepresentationImage.webp" class="GameImage" alt="An image of the old version"></a>
 
                 <p>The old original stinky version of this website!!</p>
+                <a href="Assets/PreviousLabs/Lab2/DetailedAboutMe.html">Learn More</a>
+
             </div>
+
+            </div> 
+
+        <br> <br>
+
+        <div class="Seperator">
+            <div><br></div>
+            <img id="SeperatorEye" src="Assets/Eye.png" alt="The AllSeeing.">
+            <img class="SeperatorImage" src="Assets/Games/Background.webp" alt="Dreamy Sky">
+            <div><br></div>
         </div>
 
-        <div class="Footer" id="Seperator"><br></div>
-        <img id="SeperatorImage" src="Assets/Games/Background.webp" alt="Dreamy Sky">
-        <div class="Footer" id="Seperator"><br></div>
-
-        <div>
+        <section id="ArtSection">
             <h2>Art</h2>
             <p>I also do art!</p>
-        <div class="Showcase" id="Art">
-            <div>
-                <img src="Assets/Art/baguette_concept_art.webp"> 
-                <h4>Gooly Concept</h4>
+            <div class="Showcase" id="Art">
+                <div>
+                   <img src="Assets/Art/baguette_concept_art.webp" alt="Concept art for my baguette game!"> 
+                   <h4>Gooly Concept</h4>
+              </div>
+
+               <div>
+                  <img src="Assets/Placeholder.png" alt="Placeholder art since I ran out of good ones"> 
+                   <h4>Blahaj!</h4>
+              </div>
+
+               <div>
+                   <img src="Assets/Art/Fursona_1.webp" alt="A drawing of my fursona"> 
+                  <h4>Fursona</h4>
+              </div>
+
+              <div>
+                 <img src="Assets/Art/Fursona_2.webp" alt="Another drawing of my fursona"> 
+                 <h4>Fursona 2</h4>
+             </div>
+
+              <div>
+                   <img src="Assets/Art/StickmanDead.webp" alt="A drawing of a dead stickman wow so edgy">
+                    <h4>Stickman Virus</h4>
             </div>
-
-            <div>
-                <img src="Assets/Art/Blahaj.webp"> 
-                <h4>Blahaj!</h4>
-                <P>Will replace ASAP</P>
             </div>
-
-            <div>
-                <img src="Assets/Art/Fursona_1.webp"> 
-                <h4>Fursona</h4>
-            </div>
-
-            <div>
-                <img src="Assets/Art/Fursona_2.webp"> 
-                <h4>Fursona 2</h4>
-            </div>
-
-            <div>
-                <img src="Assets/Art/StickmanDead.webp">
-                <h4>Stickman Virus</h4>
-            </div>
-        </div>
-
-            <button>See More</button>
+            <a href="https://caflianutopia.itch.io/space-bars-and-bouncy-castles">See More</a>
 
 
-        </div>
+        </section>
 
-        <div id="Contact">
+        <section id="Contact">
             <h2>Contact</h2>
             <p>You can CONTACT me here!!</p>
 
@@ -189,29 +202,34 @@ You're actually an alien
 
             <form id="ContactForm">
                 <p>Email:</p>
-                <input type="text" id="Email" name="Email" value="Email">
+                <input type="text" id="Email" name="Email">
                 <p>Name:</p>
                 <input type="text" id="Name" name="Name">
                 <p>Inquiry</p>
-                <input type="text" size="40" id="ContextField" name="ContextField">
+                <input type="text" size="30" id="ContextField" name="ContextField">
                 <p>Has pepperoni pizza?</p>
                 <input type="checkbox" id="PepperoniPizza" name="PepperoniPizza">
-
+                <div></div>
                 <input type="submit" value="Submit" id="Submit">
                 <br> <br>
             </form>
             <br> <br> <br> 
-        </div>
+        </section>
 
-    </div>
+    </main>
 
     <div class="Footer">
-        <p>2025, Celeste/Cesaster, All Rights Served, CelesteCeleste@proton.me</p>
-        <a href="https://bsky.app/"><img src="Assets/Logos/Bluesky.svg" alt="Bluesky Logo"></a>
-        <a href="https://www.discord.com"><img src="Assets/Logos/Discord.svg" alt="Discord Logo"></a>
-        <a href="https://www.matrix.org"><img src="Assets/Logos/Matrix.svg" alt="Matrix Logo"></a>
-        <a href="https://www.youtube.com/@Xorgel-Celiantia"><img src="Assets/Logos/youtube.svg" alt="Youtube Logo"></a>
-        <button ><a href="#Header">Back to top</a></button>
+        <p>2025, Celeste/Cesaster, CelesteCeleste@proton.me</p>
+        <a href="#Header">Back to top</a>
+
+        <div id="SocialMedia">
+            <a href="https://bsky.app/"><img src="Assets/Logos/Bluesky.svg" alt="Bluesky Logo"></a>
+            <a href="https://www.discord.com"><img src="Assets/Logos/Discord.svg" alt="Discord Logo"></a>
+            <a href="https://www.matrix.org"><img src="Assets/Logos/Matrix.svg" alt="Matrix Logo"></a>
+            <a href="https://www.youtube.com/@Xorgel-Celiantia"><img src="Assets/Logos/youtube.svg" alt="Youtube Logo"></a>
+        </div>
+
+        <a href="Credits.html">Special Thanks</a>
     </div>
 </body>
 </html>
